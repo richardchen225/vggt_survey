@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Project page for a survey of VGGT geometric state strengthening, reuse, datasets, benchmarks, and open challenges.">
+  <title>VGGT for 3D Reconstruction and Beyond</title>
+  <link rel="canonical" href="https://richardchen225.github.io/vggt_survey/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="VGGT Survey home">
+      <span class="brand-mark" aria-hidden="true">V</span>
+      <span>VGGT Survey</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#overview">Overview</a>
+      <a href="#taxonomy">Taxonomy</a>
+      <a href="#papers">Literature</a>
+      <a href="#benchmarks">Datasets</a>
+      <a href="#challenges">Challenges</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title">VGGT for 3D Reconstruction and Beyond</h1>
+        <p class="hero-summary">A Survey of Geometric State Strengthening and Its Applications</p>
+        <p class="author-line" id="survey-authors"></p>
+        <ol class="affiliation-list" id="survey-affiliations"></ol>
+        <p class="dataset-note" id="corresponding-author"></p>
+        <div class="hero-actions" aria-label="Project resources">
+          <a class="button resource-button" href="assets/survey_acmcsur.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8zM14 3v5h5M9 12h6M9 16h6"/></svg><span>Paper</span></a>
+          <a class="button resource-button" href="https://github.com/richardchen225/vggt_survey"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8 4 12l4 4m8-8 4 4-4 4m-3-11-2 18"/></svg><span>Repository</span></a>
+          <button class="button resource-button" id="copy-citation" type="button" aria-label="Copy BibTeX citation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H6a2 2 0 0 0-2 2v4a3 3 0 0 1-2 3 3 3 0 0 1 2 3v4a2 2 0 0 0 2 2h2m8-18h2a2 2 0 0 1 2 2v4a3 3 0 0 0 2 3 3 3 0 0 0-2 3v4a2 2 0 0 1-2 2h-2M10 8h2a2 2 0 0 1 0 4h-2V8Zm0 4h2a2 2 0 0 1 0 4h-2v-4Z"/></svg><span class="button-label" aria-live="polite">BibTeX</span></button>
+        </div>
+      </div>
+      <figure class="hero-figure">
+        <a href="assets/architecture.svg" target="_blank" rel="noopener"><img src="assets/architecture.svg" alt="VGGT architecture producing multi-view geometry latent features and structured geometric outputs."></a>
+        <figcaption>VGGT architecture. Image tokens pass through alternating frame-wise and global attention. Prediction heads decode cameras, depth maps, point maps, and tracks.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section-band" id="overview">
+      <div class="section-heading">
+        <p class="section-index">01 · Overview</p>
+        <h2>A geometric-state view of VGGT research</h2>
+      </div>
+      <div class="overview-layout">
+        <div class="prose">
+          <p>VGGT jointly predicts cameras, point maps, depth maps, and tracks from multiple images in one feed-forward pass. Its geometric state contains two components: multi-view geometry latent features and structured geometric outputs.</p>
+          <p><strong>State strengthening</strong> improves how the geometric state is formed from diverse inputs, computed efficiently, made robust, retained across streams and long sequences, or extended to dynamic scenes. <strong>State reuse</strong> uses the features, outputs, or their combination in downstream applications.</p>
+        </div>
+        <dl class="state-definitions">
+          <div><dt>Z<sub>geo</sub></dt><dd><strong>Multi-view geometry latent features.</strong> Features formed by aggregating information within and across input views.</dd></div>
+          <div><dt>R<sub>geo</sub></dt><dd><strong>Structured geometric outputs.</strong> Cameras, point maps, depth maps, and tracks decoded from those features.</dd></div>
+        </dl>
+      </div>
+      <figure class="overview-teaser teaser-figure">
+        <div class="teaser-image-crop">
+          <a href="assets/teaser.pdf" target="_blank" rel="noopener"><img src="assets/teaser.png" alt="Overview of the survey, covering feed-forward reconstruction, geometric-state strengthening and reuse, datasets and benchmarks, and open challenges."></a>
+        </div>
+        <figcaption>Overview of the survey taxonomy, datasets and evaluation targets, and open challenges. Parenthesized counts indicate reviewed works.</figcaption>
+      </figure>
+      <details class="abstract-panel"><summary>Read the abstract</summary><p id="survey-abstract"></p></details>
+    </section>
+
+    <section class="timeline-band" aria-labelledby="timeline-title">
+      <div class="section-heading">
+        <h2 id="timeline-title">Development of the VGGT lineage around geometric state</h2>
+      </div>
+      <figure class="timeline-figure">
+        <a href="assets/timeline.svg" target="_blank" rel="noopener"><img src="assets/timeline.svg" alt="Geometric-state trend tree with 5 strengthening branches above the center, 5 application branches below, and years and quarters on the left."></a>
+        <figcaption>Methods are arranged outward from the central geometric state by when they appeared. The side panels show combinations of strengthening directions and applications, together with potential directions. Open the figure to zoom in.</figcaption>
+      </figure>
+    </section>
+
+    <section class="taxonomy-band" id="taxonomy">
+      <div class="section-heading">
+        <p class="section-index">02 · Taxonomy</p>
+        <h2>Strengthen the state. Reuse the state.</h2>
+      </div>
+      <div class="branch-grid">
+        <article class="branch strengthening">
+          <div class="branch-header"><span>State strengthening</span><strong>5 directions</strong></div>
+          <ol id="strengthening-directions"></ol>
+        </article>
+        <article class="branch reuse">
+          <div class="branch-header"><span>State reuse</span><strong>5 applications</strong></div>
+          <ol id="reuse-directions"></ol>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-band paper-explorer" id="papers">
+      <div class="section-heading explorer-heading">
+        <div>
+          <p class="section-index">03 · Literature</p>
+          <h2>Explore the reviewed papers</h2>
+        </div>
+        <p id="paper-count" class="count-label" aria-live="polite"></p>
+      </div>
+      <div class="filters" role="search">
+        <label class="search-field">
+          <span class="sr-only">Search papers</span>
+          <input id="paper-search" type="search" placeholder="Search method name, paper title, author, or venue">
+        </label>
+        <div class="filter-buttons" id="branch-filters" aria-label="Filter papers by branch">
+          <button class="filter active" type="button" data-branch="all">All</button>
+          <button class="filter" type="button" data-branch="strengthening">Strengthening</button>
+          <button class="filter" type="button" data-branch="reuse">Reuse</button>
+        </div>
+        <label class="select-field">
+          <span class="sr-only">Filter by category</span>
+          <select id="category-filter"><option value="all">All categories</option></select>
+        </label>
+      </div>
+      <div id="paper-list" class="paper-list"></div>
+      <p id="empty-state" class="empty-state" hidden>No papers match the current filters.</p>
+      <button id="load-more" class="load-more" type="button">Load more papers</button>
+    </section>
+
+    <section class="benchmark-band" id="benchmarks">
+      <div class="section-heading">
+        <p class="section-index">04 · Datasets and benchmarks</p>
+        <h2>Evaluation depends on the evidence a dataset provides</h2>
+      </div>
+      <div class="benchmark-layout">
+        <div class="benchmark-copy">
+          <p>Explore datasets for <strong>3D reconstruction</strong>, <strong>novel-view synthesis</strong>, and <strong>other downstream tasks</strong>, together with the tasks, metrics, and comparison conditions used for evaluation.</p>
+          <p>The overview shows how many datasets in each group provide observations or annotations that support each evaluation task. Percentages are calculated within each group of reviewed datasets.</p>
+        </div>
+        <figure class="coverage-figure">
+          <div class="coverage-table-wrap" id="coverage-summary"></div>
+          <div class="coverage-legend"><span>0%</span><i aria-hidden="true"></i><span>100%</span></div>
+          <figcaption>Each cell shows the number and percentage of datasets supporting an evaluation task; color encodes the percentage.</figcaption>
+        </figure>
+      </div>
+      <div class="dataset-explorer" aria-labelledby="dataset-explorer-title">
+        <div class="dataset-explorer-heading">
+          <div>
+            <h3 id="dataset-explorer-title">Search dataset capabilities</h3>
+          </div>
+          <p id="dataset-count" class="count-label" aria-live="polite"></p>
+        </div>
+        <div class="dataset-filters" role="search">
+          <label class="search-field">
+            <span class="sr-only">Search datasets</span>
+            <input id="dataset-search" type="search" placeholder="Search dataset, scale, type, or source">
+          </label>
+          <div class="filter-buttons" id="dataset-role-filters" aria-label="Filter datasets by primary evaluation use">
+            <button class="filter active" type="button" data-role="all">All groups</button>
+            <button class="filter" type="button" data-role="reconstruction">3D reconstruction</button>
+            <button class="filter" type="button" data-role="nvs">NVS</button>
+            <button class="filter" type="button" data-role="downstream">Other downstream</button>
+          </div>
+          <label class="select-field">
+            <span class="sr-only">Filter by supported evaluation task</span>
+            <select id="dataset-task-filter">
+              <option value="all">All evaluation tasks</option>
+              <optgroup label="State strengthening">
+                <option value="camera-pose">Camera pose</option>
+                <option value="depth">Depth</option>
+                <option value="3d-reconstruction">3D reconstruction</option>
+                <option value="long-stream">Long stream</option>
+                <option value="dynamic-4d">Dynamic / 4D</option>
+              </optgroup>
+              <optgroup label="Downstream reuse">
+                <option value="nvs">Novel-view synthesis</option>
+                <option value="slam">SLAM</option>
+                <option value="semantic-spatial">Semantic 3D scene understanding</option>
+                <option value="world-models">World models</option>
+                <option value="embodied-ai">Embodied action and planning</option>
+              </optgroup>
+            </select>
+          </label>
+        </div>
+        <div class="dataset-table-wrap">
+          <table class="dataset-table">
+            <thead>
+              <tr>
+                <th scope="col">Dataset</th>
+                <th scope="col">Dataset group</th>
+                <th scope="col">#Scenes</th>
+                <th scope="col">Type</th>
+                <th scope="col">Source</th>
+                <th scope="col">Supported evaluation tasks</th>
+              </tr>
+            </thead>
+            <tbody id="dataset-table-body"></tbody>
+          </table>
+          <p id="dataset-empty-state" class="empty-state" hidden>No datasets match the current filters.</p>
+        </div>
+      </div>
+      <p class="dataset-note">Dataset scale is reported as scene counts. For Oxford RobotCar, OmniWorld, and SPair-71k, a scene count was not identified in the cited source; frame or pair counts indicate scale instead.</p>
+      <div class="evaluation-panels" id="evaluation-tables"></div>
+    </section>
+
+    <section class="section-band" id="challenges">
+      <div class="section-heading">
+        <p class="section-index">05 · Open challenges</p>
+        <h2>Open challenges</h2>
+      </div>
+      <div class="challenge-grid">
+        <article><span>01</span><h3>Reliable and persistent geometric state</h3><p>How can geometric state remain dependable as measurements, sequence length, and scene motion change?</p></article>
+        <article><span>02</span><h3>Adaptive geometric representations for downstream applications</h3><p>How can one state expose the information needed by different applications without rebuilding a separate representation for each application?</p></article>
+        <article><span>03</span><h3>Dataset design for benchmarking geometric state</h3><p>How can controlled comparisons determine whether application gains arise from changes in or reuse of geometric state?</p></article>
+      </div>
+    </section>
+
+    <section class="citation-band" id="citation">
+      <div>
+        <p class="section-index">Citation</p>
+        <h2>Cite the survey</h2>
+      </div>
+      <pre id="citation-text"><code></code></pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>VGGT Survey · <span id="sync-date"></span></p>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
+  <script src="data/survey.js"></script>
+  <script src="data/catalog.js"></script>
+  <script src="data/datasets.js"></script>
+  <script src="data/evaluation.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

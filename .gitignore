@@ -1,0 +1,7 @@
+.screenshots/
+.npm-cache/
+_archive/
+.preview-server.json
+.preview-server.pid
+.DS_Store
+Thumbs.db
