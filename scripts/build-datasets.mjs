@@ -101,7 +101,7 @@ const markdown = [
   "# Datasets and Evaluation", "",
   "This index follows Tables 3–6 of the current ACM manuscript. The 71 datasets are grouped by their primary evaluation use: 3D reconstruction, NVS, and other downstream tasks.", "",
   "A supported task means that the dataset provides observations or annotations that support the corresponding evaluation. Counts reproduce the manuscript's #Scenes column. For Oxford RobotCar, OmniWorld, and SPair-71k, the parenthesized frame or pair count indicates scale because a scene count was not identified in the cited source.", "",
-  "[Interactive dataset explorer and evaluation tables](../vggt-survey-website/index.html#benchmarks)", "",
+  "[Interactive dataset explorer and evaluation tables](https://richardchen225.github.io/vggt_survey/#benchmarks)", "",
 ];
 for (const group of groups) {
   const collection = datasets.filter((dataset) => dataset.role === group.id);
