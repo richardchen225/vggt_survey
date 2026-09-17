@@ -11,7 +11,7 @@ assets = site / "assets"
 manifest = {}
 for name, relative in [
     ("architecture", "fig/pipe.pdf"),
-    ("timeline", "VGGT_Geometric_State_Trend_Tree.pdf"),
+    ("timeline", "fig/VGGT_Geometric_State_Trend_Tree.pdf"),
     ("teaser", "fig/teaser.pdf"),
 ]:
     source = root / relative

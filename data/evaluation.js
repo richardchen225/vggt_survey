@@ -195,12 +195,11 @@ window.VGGT_EVALUATION = [
           },
           {
             "task": "Language-based 3D scene reasoning",
-            "datasets": "MVRefer; HyperNeRF",
+            "datasets": "MVRefer",
             "metrics": "Grounding accuracy\nat IoU 0.25",
-            "conditions": "Language queries;\nview / temporal split;\ngrounding threshold",
+            "conditions": "Language queries;\nview split;\ngrounding threshold",
             "citations": [
-              "mvggt",
-              "park2021hypernerf"
+              "mvggt"
             ]
           }
         ]

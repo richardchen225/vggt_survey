@@ -4,7 +4,7 @@
     "sha256": "721df2eb80118027d44ee55f3c23c584c9108b376a7278b920a1ecb81776cb95"
   },
   "timeline": {
-    "source": "VGGT_Geometric_State_Trend_Tree.pdf",
+    "source": "fig/VGGT_Geometric_State_Trend_Tree.pdf",
     "sha256": "bc305049b0a3b688e53377ae7246a6ca7b60beb4a2a3bfb9ea5400cf0c4b6257"
   },
   "teaser": {
@@ -13,6 +13,6 @@
   },
   "paper": {
     "source": "survey_acmcsur.pdf",
-    "sha256": "4d0e762153cb9c872403c713b909917cb0a6fc482c96bac5213491cfd75d8188"
+    "sha256": "23ee8ee97d14b1d23930c8ef968e242f4e3f2c3474c0d2f27f66880ec7b58efa"
   }
 }
