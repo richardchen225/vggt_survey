@@ -26,8 +26,8 @@ for name, relative in [
             (assets / f"{name}.svg").write_text(page.get_svg_image(text_as_path=True), encoding="utf-8")
     manifest[name] = {"source": relative, "sha256": hashlib.sha256(source.read_bytes()).hexdigest()}
 
-paper = root / "survey_acmcsur.pdf"
+paper = root.parent / "survey_arxiv" / "survey_arxiv.pdf"
 shutil.copy2(paper, assets / paper.name)
-manifest["paper"] = {"source": paper.name, "sha256": hashlib.sha256(paper.read_bytes()).hexdigest()}
+manifest["paper"] = {"source": "../survey_arxiv/survey_arxiv.pdf", "sha256": hashlib.sha256(paper.read_bytes()).hexdigest()}
 (assets / "sources.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
-print("Updated ACM manuscript PDF and all three figure assets from the current sources.")
+print("Updated the arXiv-version manuscript PDF and all three figure assets from the current sources.")

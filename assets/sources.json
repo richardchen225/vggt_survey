@@ -12,7 +12,7 @@
     "sha256": "e6f965960cb4ef28ea6b9c8f96016d4540191948ec46624b22912c1f2147f5ac"
   },
   "paper": {
-    "source": "survey_acmcsur.pdf",
-    "sha256": "2d2d6176913ca93766752f8982f7d56109f891eec6b85c6350edde2411509aa0"
+    "source": "../survey_arxiv/survey_arxiv.pdf",
+    "sha256": "ba6b753b75f2dfb25167eacce4eb7b1337412a81e622f586eb6c938bd9175167"
   }
 }
