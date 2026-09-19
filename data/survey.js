@@ -84,7 +84,7 @@ window.VGGT_SURVEY = {
     }
   ],
   "year": 2026,
-  "citation": "@misc{chen2026vggtsurvey,\n  title = {VGGT for 3D Reconstruction and Beyond: A Survey of Geometric State Strengthening and Its Applications},\n  author = {Chen, Ruiyang and Li, Feiran and Cheng, Ruiyang and Yang, Jiashuo and Zhou, Chu and Guo, Heng and Shi, Boxin and Ma, Zhanyu},\n  year = {2026},\n  note = {Survey manuscript}\n}",
+  "citation": "@misc{chen2026vggtsurvey,\n  title = {{VGGT} for {3D} Reconstruction and Beyond: A Survey of Geometric State Strengthening and Its Applications},\n  author = {Chen, Ruiyang and Li, Feiran and Cheng, Ruiyang and Yang, Jiashuo and Zhou, Chu and Guo, Heng and Shi, Boxin and Ma, Zhanyu},\n  year = {2026},\n  note = {Preprint},\n  doi = {10.13140/RG.2.2.14069.33767},\n  url = {https://doi.org/10.13140/RG.2.2.14069.33767}\n}",
   "updated": "2026-09-17",
   "source": "survey_acmcsur.tex"
 };
